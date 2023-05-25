@@ -1,6 +1,6 @@
 data "vault_policy_document" "dev_policy_content" {
   rule {
-    path         = "dynamic-aws-creds-producer-path/*"
+    path         = "dynamic-aws-creds-producer/*"
     capabilities = ["create", "read", "update", "delete", "list"]
     description  = ""
   }
