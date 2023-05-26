@@ -10,4 +10,9 @@ provider "aws" {
 }
 
 provider "vault" {
+
+  auth_login_oidc {
+    role  = "okta_dev"
+    mount = "okta_oidc"
+  }
 }

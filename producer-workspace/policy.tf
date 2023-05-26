@@ -19,8 +19,6 @@ data "vault_policy_document" "dev_policy_content" {
 
 }
 
-
-
 resource "vault_policy" "developer" {
   name   = "developer"
   policy = data.vault_policy_document.dev_policy_content.hcl
