@@ -1,10 +1,25 @@
 data "vault_policy_document" "dev_policy_content" {
   rule {
-    path         = "dynamic-aws-creds-producer/*"
-    capabilities = ["create", "read", "update", "delete", "list"]
+    path         = "dynamic-aws-creds-producer/creds/dynamic-aws-creds-producer-role"
+    capabilities = ["read"]
     description  = ""
   }
+
+  rule {
+    path         = "auth/token/lookup-self"
+    capabilities = ["read"]
+    description  = ""
+  }
+
+  rule {
+    path         = "auth/token/create"
+    capabilities = ["update"]
+    description  = ""
+  }
+
 }
+
+
 
 resource "vault_policy" "developer" {
   name   = "developer"

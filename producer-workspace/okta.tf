@@ -28,6 +28,11 @@ resource "okta_app_oauth" "vault" {
   login_scopes = ["openid", "email", "profile"]
   hide_web     = false
   hide_ios     = false
+
+  lifecycle {
+    ignore_changes = [groups]
+  }
+
 }
 
 resource "okta_app_oauth_api_scope" "vault" {
