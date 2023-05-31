@@ -57,31 +57,14 @@ variable "okta_app_name" {
   description = "okta app name"
 }
 
-# variable "okta_client_id" {
-#   type        = string
-#   description = "Okta Vault app client ID"
-# }
-
-# variable "okta_client_secret" {
-#   type        = string
-#   description = "Okta Vault app client secret"
-# }
-
-# variable "okta_bound_audiences" {
-#   type        = list(any)
-#   description = "A list of allowed token audiences"
-# }
-
 variable "okta_auth_audience" {
   type        = string
   description = ""
-  default     = "api://vault"
 }
 
 variable "cli_port" {
   type        = number
   description = "Port to open locally to login with the CLI"
-  default     = 8250
 }
 
 variable "okta_default_lease_ttl" {
