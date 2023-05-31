@@ -9,7 +9,7 @@ resource "okta_app_oauth" "vault" {
   grant_types = ["authorization_code", "implicit", "refresh_token"]
   redirect_uris = ["${var.vault_addr}/ui/vault/auth/${var.okta_mount_path}/oidc/callback",
     # the localhost on the cli port, usually 8250, is required below if you want to use CLI-based auth, ie
-    # $ vault login -method=oidc -path=okta_oidc role=okta_admin
+    # $ vault login -method=oidc -path=okta_oidc role=okta_dev
     "http://localhost:${var.cli_port}/oidc/callback"
   ]
   response_types            = ["id_token", "code"]
