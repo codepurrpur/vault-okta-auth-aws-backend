@@ -1,4 +1,8 @@
-# Steps
+# Intro
+
+<https://codepurrpurr.io/identity/vault-okta-dynamic-secrets/>
+
+## Steps
 
 ```sh
 # Start Vault server
