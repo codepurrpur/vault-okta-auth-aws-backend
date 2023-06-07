@@ -6,6 +6,18 @@ data "vault_policy_document" "dev_policy_content" {
   }
 
   rule {
+    path         = "dynamic-azure-creds-producer/creds/dynamic-azure-creds-producer-role"
+    capabilities = ["read"]
+    description  = ""
+  }
+
+  rule {
+    path         = "dynamic-azure-creds-producer/config"
+    capabilities = ["read"]
+    description  = ""
+  }
+
+  rule {
     path         = "auth/token/lookup-self"
     capabilities = ["read"]
     description  = ""

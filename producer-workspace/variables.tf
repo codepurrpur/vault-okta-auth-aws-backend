@@ -38,13 +38,11 @@ variable "okta_api_token" {
 variable "okta_allowed_groups" {
   type        = list(any)
   description = "Okta group for Vault admins"
-  default     = ["vault_admins"]
 }
 
 variable "okta_mount_path" {
   type        = string
   description = "Mount path for Okta auth"
-  default     = "okta_oidc"
 }
 
 variable "okta_user_email" {
@@ -70,19 +68,16 @@ variable "cli_port" {
 variable "okta_default_lease_ttl" {
   type        = string
   description = "Default lease TTL for Vault tokens"
-  default     = "12h"
 }
 
 variable "okta_max_lease_ttl" {
   type        = string
   description = "Maximum lease TTL for Vault tokens"
-  default     = "768h"
 }
 
 variable "okta_token_type" {
   type        = string
   description = "Token type for Vault tokens"
-  default     = "default-service"
 }
 
 variable "roles" {
@@ -91,4 +86,14 @@ variable "roles" {
 
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
-variable "name" { default = "dynamic-aws-creds-producer" }
+variable "vault_aws_path_name" {}
+
+variable "subscription_id" {}
+variable "tenant_id" {}
+variable "client_id" {}
+variable "client_secret" {}
+variable "vault_azure_path_name" {}
+
+variable "azure_rg" {
+  type = list(string)
+}

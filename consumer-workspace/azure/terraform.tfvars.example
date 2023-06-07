@@ -1,0 +1,8 @@
+ssh_public_key  = ""
+azure_backend   = "dynamic-azure-creds-producer"
+azure_role      = "dynamic-azure-creds-producer-role"
+admin_username  = ""
+location        = ""
+vm_os_simple    = ""
+tenant_id       = ""
+subscription_id = ""

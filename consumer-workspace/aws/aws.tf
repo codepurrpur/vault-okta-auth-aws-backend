@@ -1,6 +1,5 @@
 resource "random_id" "id" {
   byte_length = 4
-  prefix      = "cz-"
 }
 
 data "http" "myip" {
