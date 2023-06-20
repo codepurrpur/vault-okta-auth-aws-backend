@@ -19,3 +19,12 @@ vault audit enable file file_path=/Users/chichi/Desktop/audit.log
 tail -f  audit.log | jq '.request | {path, operation}'
 
 ```
+
+## Notes
+
+For Azure, the Azure AD app that Vault leverages for creating dynamic credentials (temerary Azure AD apps) must have sufficient permissions.
+
+What I have found working is assigning the followings permissions.
+
+* Add `Microsoft Graph` permission `Application.ReadWrite.OwnedBy`.
+* Assign `Cloud Application Administrator` role under `Roles and administrator`
