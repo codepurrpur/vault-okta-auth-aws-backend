@@ -29,9 +29,9 @@ resource "okta_app_oauth" "vault" {
   hide_web     = false
   hide_ios     = false
 
-  lifecycle {
-    ignore_changes = [groups]
-  }
+  # lifecycle {
+  #   ignore_changes = [groups]
+  # }
 
 }
 
