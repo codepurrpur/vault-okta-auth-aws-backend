@@ -5,8 +5,7 @@ terraform {
       version = "~> 2.24"
     }
     okta = {
-      source  = "okta/okta"
-      version = "~> 3.15"
+      source = "okta/okta"
     }
   }
 }
