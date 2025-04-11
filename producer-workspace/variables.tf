@@ -88,12 +88,12 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 variable "vault_aws_path_name" {}
 
-variable "subscription_id" {}
-variable "tenant_id" {}
-variable "client_id" {}
-variable "client_secret" {}
-variable "vault_azure_path_name" {}
+# variable "subscription_id" {}
+# variable "tenant_id" {}
+# variable "client_id" {}
+# variable "client_secret" {}
+# variable "vault_azure_path_name" {}
 
-variable "azure_rg" {
-  type = list(string)
-}
+# variable "azure_rg" {
+#   type = list(string)
+# }

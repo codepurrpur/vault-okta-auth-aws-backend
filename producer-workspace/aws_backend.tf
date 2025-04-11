@@ -3,8 +3,8 @@ resource "vault_aws_secret_backend" "aws" {
   secret_key = var.aws_secret_key
   path       = var.vault_aws_path_name
 
-  default_lease_ttl_seconds = "120"
-  max_lease_ttl_seconds     = "240"
+  default_lease_ttl_seconds = "3600"
+  max_lease_ttl_seconds     = "3600"
 }
 
 resource "vault_aws_secret_backend_role" "producer" {
@@ -18,9 +18,7 @@ resource "vault_aws_secret_backend_role" "producer" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "iam:*", "ec2:*"
-      ],
+      "Action": "*",
       "Resource": "*"
     }
   ]

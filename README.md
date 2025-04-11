@@ -15,7 +15,7 @@ export VAULT_ADDR=http://127.0.0.1:8200
 export VAULT_TOKEN=root
 
 # Check path and verb to tune Vault policy
-vault audit enable file file_path=/Users/chichi/Desktop/audit.log
+vault audit enable file file_path=~/Desktop/audit.log
 tail -f  audit.log | jq '.request | {path, operation}'
 
 ```

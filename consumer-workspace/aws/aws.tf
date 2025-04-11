@@ -7,7 +7,7 @@ data "http" "myip" {
 }
 
 locals {
-  vpc_cidr = "10.1.0.0/16"
+  vpc_cidr = "10.0.0.0/16"
   my_ip    = chomp(data.http.myip.response_body)
 }
 
@@ -30,11 +30,10 @@ module "vpc" {
   public_subnets       = [cidrsubnet(local.vpc_cidr, 8, 1), cidrsubnet(local.vpc_cidr, 8, 2), cidrsubnet(local.vpc_cidr, 8, 3)]
   enable_nat_gateway   = false
   enable_dns_hostnames = true
-  tags                 = var.resource_tags
 }
 
-resource "aws_security_group" "ubuntu" {
-  name   = "${random_id.id.dec}-ubuntu"
+resource "aws_security_group" "linux" {
+  name   = "${random_id.id.dec}-linux"
   vpc_id = module.vpc.vpc_id
 
   ingress {
@@ -50,7 +49,7 @@ resource "aws_security_group" "ubuntu" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["${local.my_ip}/32"]
   }
 
   ingress {
@@ -74,12 +73,7 @@ resource "aws_key_pair" "ssh_access" {
   public_key = var.ssh_public_key
 }
 
-resource "aws_instance" "ubuntu" {
-  count                       = 1
-  ami                         = var.ubuntu_ami
-  instance_type               = var.ubuntu_size
-  key_name                    = aws_key_pair.ssh_access.key_name
-  subnet_id                   = module.vpc.public_subnets[count.index]
-  vpc_security_group_ids      = [aws_security_group.ubuntu.id]
-  associate_public_ip_address = true
+data "aws_ssm_parameter" "al2023_ami" {
+  name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 }
+

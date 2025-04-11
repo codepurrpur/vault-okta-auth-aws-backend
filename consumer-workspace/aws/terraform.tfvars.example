@@ -1,6 +1,0 @@
-ubuntu_ami     = ""
-ubuntu_size    = ""
-region         = ""
-ssh_public_key = ""
-aws_backend    = "dynamic-aws-creds-producer"
-aws_role       = "dynamic-aws-creds-producer-role"

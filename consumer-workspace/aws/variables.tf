@@ -6,13 +6,8 @@ variable "region" {
   type        = string
 }
 
-variable "ubuntu_ami" {
-  description = "AMI ID for ubuntu instances"
-  type        = string
-}
-
-variable "ubuntu_size" {
-  description = "Instance size for ubuntu instances"
+variable "instance_size" {
+  description = "Instance size for server instances"
   type        = string
 }
 
@@ -21,7 +16,7 @@ variable "ssh_public_key" {
   type        = string
 }
 
-variable "resource_tags" {
+variable "default_tags" {
   type    = map(string)
   default = {}
 }

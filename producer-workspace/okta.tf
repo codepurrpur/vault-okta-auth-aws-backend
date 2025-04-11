@@ -29,16 +29,14 @@ resource "okta_app_oauth" "vault" {
   hide_web     = false
   hide_ios     = false
 
-  # lifecycle {
-  #   ignore_changes = [groups]
-  # }
-
 }
 
 resource "okta_app_oauth_api_scope" "vault" {
   app_id = okta_app_oauth.vault.id
   issuer = var.okta_base_url_full
   scopes = ["okta.groups.read", "okta.users.read.self"]
+
+  depends_on = [okta_app_oauth.vault]
 }
 
 resource "okta_app_group_assignments" "vault-groups" {
@@ -47,6 +45,11 @@ resource "okta_app_group_assignments" "vault-groups" {
   group {
     id = okta_group.vault-dev.id
   }
+
+  lifecycle {
+    ignore_changes = [group]
+  }
+  
 }
 
 resource "okta_auth_server" "vault" {
