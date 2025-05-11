@@ -28,3 +28,4 @@ What I have found working is assigning the followings permissions.
 
 * Add `Microsoft Graph` permission `Application.ReadWrite.OwnedBy`.
 * Assign `Cloud Application Administrator` role under `Roles and administrator`
+# infra
